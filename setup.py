@@ -42,7 +42,7 @@ setup(
     package_data={'nanomonsv': ['data/*']},
 
     # install_requires = ["numpy", "parasail", "pysam"],
-    entry_points = {'console_scripts': ['nanomonsv = nanomonsv:main', 'nanomonsv_get_refined_bp = nanomonsv.get_refined_bp:main']}
+    entry_points = {'console_scripts': ['nanomonsv = nanomonsv:main', 'nanomonsv_locate_bp = nanomonsv.locate_bp:main']}
     #entry_points = {'console_scripts': ['nanomonsv = nanomonsv:main']}
 
 )
