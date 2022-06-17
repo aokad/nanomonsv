@@ -55,7 +55,7 @@ RUN wget -q https://github.com/lh3/minimap2/releases/download/v2.24/minimap2-2.2
 
 ENV PATH $PATH:/minimap2-2.24
 
-RUN wget -q https://github.com/aokad/nanomonsv/archive/refs/tags/v0.5.0b3.tar.gz && \
-    tar zxvf v0.5.0b3.tar.gz && \
-    cd nanomonsv-0.5.0b3 && \
+RUN wget -q https://github.com/aokad/nanomonsv/archive/refs/tags/v0.5.0b4.tar.gz && \
+    tar zxvf v0.5.0b4.tar.gz && \
+    cd nanomonsv-0.5.0b4 && \
     python3 -m pip install . 
