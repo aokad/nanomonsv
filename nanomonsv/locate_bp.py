@@ -119,7 +119,7 @@ def main():
     args.func(args.consensus_file, args.output_file, args.reference_fasta, args.debug)
 
 def locate_bp(consensus_file, output_file, reference_fasta, debug):
-    option = ""
+    command = ["nanomonsv_locate_bp", consensus_file, output_file, reference_fasta]
     if debug:
-        option = "--debug"
-    subprocess.check_call(["nanomonsv_locate_bp", consensus_file, output_file, reference_fasta, option])
+        command += ["--debug"]
+    subprocess.check_call(command)
