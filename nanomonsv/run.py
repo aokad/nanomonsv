@@ -285,7 +285,7 @@ def get_main(args):
         args.tumor_bam, single_breakend_file = args.tumor_prefix + ".singlebreakend.sorted.clustered.bed",
         output_file_sbind = args.tumor_prefix + ".support_read_seq.sbnd.txt" )
     
-    logger.info("Prep threading") 
+    logger.info("Preparation for parallel execution")
     fw_support_read_seqs = []
     fw_support_read_seq_sbnds = []
     for i in range(parallel_num):
@@ -336,7 +336,7 @@ def get_main(args):
                 #for feature in features:
                 #    print(feature.result())
 
-    logger.info("Merge threading")
+    logger.info("Merge parallel execution")
     def merge_txt(prefix):
         with open(prefix + ".txt", 'w') as hout:
             for i in range(parallel_num):

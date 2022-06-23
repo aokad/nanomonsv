@@ -122,7 +122,7 @@ def create_parser():
     #                  help = "Filter if the number of supporting reads for the control sample is larger than this value")
 
     get.add_argument("--threads", default = 1, type = int,
-                     help = "Number of threads (default: 1)")
+                     help = "Number of threads (not recommended) (default: 1)")
 
     get.add_argument("--processes", default = 1, type = int,
                      help = "Number of processes (default: 1)")

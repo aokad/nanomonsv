@@ -78,7 +78,7 @@ def get_refined_bp(contig, fasta_file_ins, chr1, start1, end1, dir1, chr2, start
 
         
  
-def locate_bp_main(consensus_file, output_file, reference_fasta, debug):
+def locate_bp(consensus_file, output_file, reference_fasta, debug):
 
     fasta_file_ins = pysam.FastaFile(reference_fasta)
 
@@ -99,27 +99,3 @@ def locate_bp_main(consensus_file, output_file, reference_fasta, debug):
                 # print('\t'.join([chr1, str(bp_pos1), dir1, chr2, str(bp_pos2), dir2, inseq]), file = hout)
 
     if not debug: os.remove(output_file + ".locate_bp.log")
-
-def main():
-    import argparse
-    from .version import __version__
-
-    parser = argparse.ArgumentParser(prog = "nanomonsv_locate_bp")
-
-    parser.add_argument("--version", action = "version", version = "%(prog)s " + __version__)
-
-    parser.add_argument("consensus_file", default = None, type = str, help = "")
-    parser.add_argument("output_file", type = str, help = "")
-    parser.add_argument("reference_fasta", type = str, help = "")
-    parser.add_argument("--debug", default = False, action = 'store_true', help = "keep intermediate files (default: False)")
-
-    parser.set_defaults(func = locate_bp_main)
-
-    args = parser.parse_args()
-    args.func(args.consensus_file, args.output_file, args.reference_fasta, args.debug)
-
-def locate_bp(consensus_file, output_file, reference_fasta, debug):
-    command = ["nanomonsv_locate_bp", consensus_file, output_file, reference_fasta]
-    if debug:
-        command += ["--debug"]
-    subprocess.check_call(command)
