@@ -285,7 +285,7 @@ def get_main(args):
         args.tumor_bam, single_breakend_file = args.tumor_prefix + ".singlebreakend.sorted.clustered.bed",
         output_file_sbind = args.tumor_prefix + ".support_read_seq.sbnd.txt" )
     
-    logger.info("Preparation for parallel execution")
+    logger.info("Prep threading") 
     fw_support_read_seqs = []
     fw_support_read_seq_sbnds = []
     for i in range(parallel_num):
@@ -336,7 +336,7 @@ def get_main(args):
                 #for feature in features:
                 #    print(feature.result())
 
-    logger.info("Merge parallel execution")
+    logger.info("Merge threading")
     def merge_txt(prefix):
         with open(prefix + ".txt", 'w') as hout:
             for i in range(parallel_num):
@@ -355,7 +355,6 @@ def get_main(args):
     if not args.debug:
         for i in range(parallel_num):
             os.remove(args.tumor_prefix + ".support_read_seq.%d.txt" % (i))
-            os.remove(args.tumor_prefix + ".support_read_seq.sbnd.%d.txt" % (i))
             os.remove(args.tumor_prefix + ".consensus_seq.%d.txt" % (i))
             os.remove(args.tumor_prefix + ".consensus_seq.sbnd.%d.txt" % (i))
             os.remove(args.tumor_prefix + ".refined_bp.%d.txt" % (i))
@@ -369,6 +368,8 @@ def get_main(args):
                 os.remove(args.tumor_prefix + ".realignment.control.sread_count.sbnd.%d.txt" % (i))
                 os.remove(args.tumor_prefix + ".realignment.control.sread_info.%d.txt" % (i))
                 os.remove(args.tumor_prefix + ".realignment.control.sread_info.sbnd.%d.txt" % (i))
+            if not args.single_bnd:
+                os.remove(args.tumor_prefix + ".support_read_seq.sbnd.%d.txt" % (i))
 
     logger.info("Final processing") 
     control_sread_count_file = args.tumor_prefix + ".realignment.control.sread_count.txt" if args.control_bam is not None else None
@@ -394,8 +395,6 @@ def get_main(args):
         os.remove(args.tumor_prefix + ".insertion.sorted.clustered.bedpe")
         os.remove(args.tumor_prefix + ".deletion.sorted.clustered.bedpe")
         os.remove(args.tumor_prefix + ".singlebreakend.sorted.clustered.bed")
-        os.remove(args.tumor_prefix + ".support_read_seq.txt")
-        os.remove(args.tumor_prefix + ".support_read_seq.sbnd.txt")
         #os.remove(args.tumor_prefix + ".consensus_seq.txt")
         #os.remove(args.tumor_prefix + ".consensus_seq.sbnd.txt")
         #os.remove(args.tumor_prefix + ".refined_bp.txt")
@@ -412,7 +411,7 @@ def get_main(args):
 
         if not args.single_bnd:
             os.remove(args.tumor_prefix + ".nanomonsv.sbnd.result.txt")   
-
+            #os.remove(args.tumor_prefix + ".support_read_seq.sbnd.txt")
 
 def validate_main(args):
    
