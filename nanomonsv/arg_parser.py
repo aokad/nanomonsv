@@ -127,7 +127,7 @@ def create_parser():
     get.add_argument("--processes", default = 1, type = int,
                      help = "Number of processes (default: 1)")
 
-    get.add_argument("--sort_option", metavar = "-S 1G -T /tmp", type = str, default = "-S 1G -T /tmp", 
+    get.add_argument("--sort_option", metavar = "-S 1G", type = str, default = "-S 1G", 
                      help = "options for sort command")
 
     get.add_argument("--debug", default = False, action = 'store_true', help = "keep intermediate files (default: False)")
@@ -161,7 +161,7 @@ def create_parser():
     validate.add_argument("--use_ssw_lib", default = False, action = 'store_true',
                           help = "Use SSW Library. This is for backward comaptibility, and may be removed in the future")
 
-    validate.add_argument("--sort_option", metavar = "-S 1G -T /tmp", type = str, default = "-S 1G -T /tmp", 
+    validate.add_argument("--sort_option", metavar = "-S 1G", type = str, default = "-S 1G", 
                      help = "options for sort command")
 
     validate.add_argument("--debug", default = False, action = 'store_true', help = "keep intermediate files")
