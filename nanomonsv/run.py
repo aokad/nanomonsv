@@ -175,7 +175,7 @@ def call_slow_request(args, index):
     except Exception as e:
         err_message = str(e)
     
-    print("End Process (%d): ret_code=%d" % (index, ret_code))
+    logger.info("End Process (%d): ret_code=%d" % (index, ret_code))
     return (ret_code, err_message)
 
 def get_main(args):
