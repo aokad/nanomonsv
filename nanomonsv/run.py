@@ -131,7 +131,7 @@ def call_slow_request(args, index):
             use_racon = args.use_racon, debug = args.debug)
         generate_consensus_sbnd(args.tumor_prefix + ".support_read_seq.sbnd.%d.txt" % (index),
             args.tumor_prefix + ".consensus_seq.sbnd.%d.txt" % (index),
-            use_racon = args.use_racon, debug = args.debug)
+            use_racon = args.use_racon, debug = args.debug, max_memory_minimap2 = args.max_memory_minimap2)
 
         logger.info("Locating single-base resolution break points for candidate SVs (%d)" % (index))
         locate_bp(args.tumor_prefix + ".consensus_seq.%d.txt" % (index),
