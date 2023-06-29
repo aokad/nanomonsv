@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: 
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
-
+        //python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.10"]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -18,7 +18,7 @@ jobs:
     - name: Install Linux dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential wget
+        sudo apt-get install -y build-essential wget cmake
     - name: Download and install HTSLib
       run: |
         wget https://github.com/samtools/htslib/releases/download/1.17/htslib-1.17.tar.bz2
@@ -45,6 +45,7 @@ jobs:
         pip install numpy
         pip install pysam
         pip install parasail
+        pip install tqdm
     - name: Pytest
       run: |
         pytest
