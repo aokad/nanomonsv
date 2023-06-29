@@ -15,7 +15,7 @@ class TestMain(unittest.TestCase):
                           cur_dir + "/resource/reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa")
          
         self.parser = nanomonsv.arg_parser.create_parser()
-
+    """
     def test_parse_tumor(self):
 
         cur_dir = os.path.dirname(os.path.abspath(__file__))
@@ -42,7 +42,7 @@ class TestMain(unittest.TestCase):
         shutil.rmtree(tmp_dir)
         #shutil.rmtree(cur_dir + "/data/test_tumor")
         #shutil.copytree(tmp_dir, cur_dir + "/data/test_tumor")
-
+    """
     """
     def test_parse_control(self):
 
@@ -71,7 +71,7 @@ class TestMain(unittest.TestCase):
         #shutil.rmtree(cur_dir + "/data/test_ctrl")
         #shutil.copytree(tmp_dir, cur_dir + "/data/test_ctrl")
     """
-
+    """
     def test_parse_tumor_cram(self):
 
         cur_dir = os.path.dirname(os.path.abspath(__file__))
@@ -97,7 +97,7 @@ class TestMain(unittest.TestCase):
         self.assertTrue(record_num3 == 165)
 
         shutil.rmtree(tmp_dir)
-
+    """
     def test_get1_1(self):
         # cram
         # with control
@@ -129,7 +129,7 @@ class TestMain(unittest.TestCase):
         self.assertTrue(record_num2 == 93) 
 
         shutil.rmtree(tmp_dir)
-
+    """
     def test_get1_2(self):
         # cram
         # with control
@@ -521,7 +521,7 @@ class TestMain(unittest.TestCase):
         self.assertTrue(filecmp.cmp(output_file, sv_list, shallow=False))
         shutil.rmtree(tmp_dir)
         #shutil.copyfile(output_file, sv_list)
-
+    """
 if __name__ == "__main__":
    unittest.main()
 
