@@ -71,7 +71,7 @@ class TestMain(unittest.TestCase):
         #shutil.rmtree(cur_dir + "/data/test_ctrl")
         #shutil.copytree(tmp_dir, cur_dir + "/data/test_ctrl")
     """
-    """
+    
     def test_parse_tumor_cram(self):
 
         cur_dir = os.path.dirname(os.path.abspath(__file__))
@@ -97,7 +97,7 @@ class TestMain(unittest.TestCase):
         self.assertTrue(record_num3 == 165)
 
         shutil.rmtree(tmp_dir)
-    """
+    
     def test_get1_1(self):
         # cram
         # with control
