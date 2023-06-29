@@ -22,7 +22,7 @@ jobs:
       run: |
         wget https://github.com/samtools/htslib/releases/download/1.17/htslib-1.17.tar.bz2
         tar jxvf htslib-1.17.tar.bz2
-        cd htslib-1.17 && ./configure && make && make install && cd ../
+        cd htslib-1.17 && ./configure && make && sudo make install && cd ../
         which tabix
         wget http://ftp.debian.org/debian/pool/main/m/mafft/mafft_7.407-2_amd64.deb
         sudo dpkg -i mafft_7.407-2_amd64.deb && cd ../
